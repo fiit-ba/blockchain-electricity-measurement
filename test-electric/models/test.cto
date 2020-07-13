@@ -1,0 +1,67 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * model definitions for the test-electric Network 
+ */
+
+namespace test
+
+
+  participant User identified by userId {
+    o String userId
+    o String email regex=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/
+    o String phoneNumber regex=/^[0-9]*$/
+    o String address
+  }
+
+  participant Customer extends User {
+      o String firstName
+      o String lastName
+  }
+  participant UtilityCompany extends User {
+      o String name
+  }
+  
+
+  asset Meter identified by MeterId {
+  o String MeterId
+  o String units default = "KwH" // kwh
+  o Double balance 
+  o String houseNumber
+  --> Customer owner
+  }
+
+
+    transaction ChangeOwner {
+    --> Meter meter
+    --> Customer newOwner
+    }
+    
+    transaction MeterUpdate {
+    --> Meter meter   
+    o Double usage
+    }
+
+    event MeterUpdated {
+      --> Meter meter
+      o Double oldValue
+      o Double newValue
+      }
+
+    event OwnerChanged {
+      --> Meter meter
+      o Customer oldOwner
+      o Customer newOwner
+      }

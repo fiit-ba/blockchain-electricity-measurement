@@ -1,0 +1,37 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "myNodeJsApp",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive  --timeout 20000",
+    "start": "node index.js"
+  },
+  "author": "Sultan",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "cli-table": "^0.3.1",
+    "composer-admin": "^0.20.9",
+    "composer-cli": "^0.20.9",
+    "composer-client": "^0.20.9",
+    "composer-common": "^0.20.9",
+    "composer-connector-embedded": "latest",
+    "composer-wallet-inmemory": "^0.20.9",
+    "cors": "^2.8.5",
+    "ejs": "^3.0.2",
+    "expect": "^25.5.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.6",
+    "html-pdf": "^2.2.0",
+    "mocha": "^7.1.2",
+    "nodemailer": "^6.4.6",
+    "prettyjson": "^1.2.1",
+    "prettyoutput": "^1.2.0",
+    "readline-sync": "^1.4.10",
+    "winston": "^3.2.1"
+  }
+}

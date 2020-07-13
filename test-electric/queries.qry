@@ -1,0 +1,27 @@
+/** Sample queries for electric Trading business network
+*/
+
+query selectCustomers {
+  description: "Select all Customers"
+  statement:
+      SELECT test.Customer
+}
+
+
+
+
+query selectMeters { 
+  description: "Select all MetersTransaction"
+  statement:
+      SELECT test.MeterUpdate
+            ORDER BY timestamp 
+}
+
+
+
+query selectMetersByOwner { 
+  description: "Select all Customers"
+  statement:
+      SELECT test.Meter
+      WHERE (owner == _$owner)
+}

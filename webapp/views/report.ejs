@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	
+	<title>Invoice</title>
+	<link href= "app.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+
+<body>
+
+	
+	<div id="logo">
+		<img src="images/cover.png" >
+	</div>
+	<div id="page-wrap">
+
+
+		
+		<header id="header">Electricity Daily Invoice</header>
+		
+		<div id="identity">
+		
+<h3 id="address">
+	Electricity Provider: <br/>
+Green Village<br/>
+842 47 Stare Grunty<br/>
+Bratislava, Slovakia
+Phone: +(421) 940-555533</h3>
+			
+				
+
+			
+           
+		
+		</div>
+		
+		<div style="clear:both"></div>
+		
+		<div id="customer">
+
+            <h3 id="customer-title">
+				Customer : <br/>	
+				Name: <%= meter.Owner.firstName %>
+				<%= meter.Owner.lastName %>
+				<br/>
+				E-mail: <%= meter.Owner.email %>
+				<br/>
+				Phone: <%= meter.Owner.phoneNumber %>
+				<br/>
+				Address: <%= meter.Owner.address %>
+			</h3>
+
+            <table id="meta">
+				<!--
+					
+				-->
+                <tr>
+                    <td class="meta-head">Invoice #</td>
+                    <td><%= meter.invoice %></td>
+                </tr>
+                <tr>
+
+                    <td class="meta-head">Date</td>
+                    <td> 
+						<%= meter.Date %>
+					</td>
+				</tr>
+				<!--
+					  <tr>
+                    <td class="meta-head">Amount Due</td>
+                    <td><div class="due">$875.00</div></td>
+                </tr>
+				-->
+              
+
+            </table>
+		
+		</div>
+		
+		<table id="items">
+		  <tr>
+		      <th>House No</th>
+		      <th>Description</th>
+		      <th>Daily Usage</th>
+		      <th>Unit</th>
+		      <th>Price</th>
+		  </tr>
+		  
+		  <tr class="item-row">
+		      <td class="item-name"><%= meter.houseNumber %></td>
+		      <td class="description">Description</td>
+		      <td><%= meter.usage %></td>
+		      <td>KwH</td>
+		      <td><span class="price">$0.3</span></td>
+		  </tr>
+		   
+		
+		</table>
+		
+
+
+		<table id = "item">
+		
+			<tr>
+				<td colspan="2" class="meta-head">Total Electricity Usage</td>
+				<td class="total-value"><div id="total"> <%= meter.TotalBalance %> KwH</div></td>
+			</tr>
+		
+	<!--
+
+			<tr>
+		
+				<td colspan="2" class="meta-head">Amount Paid</td>
+				<td class="total-value">$0.00</td>
+			</tr>
+	<tr>
+			
+				<td colspan="2" class="meta-head">Balance Due</td>
+				<td class="total-value balance"><div class="due">$875.00</div></td>
+			</tr>
+	-->
+		
+
+		</table>
+		<div id="terms">
+		  <h5>Terms</h5>
+	
+		</div>
+	
+	</div>
+	
+</body>
+
+</html>
